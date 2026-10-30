@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
@@ -15,5 +15,21 @@
       <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.14" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
+    <AvaloniaResource Include="Assets\**\*" />
+    <AvaloniaXaml Remove="Assets/Resources/AppResources.axaml" />
+    <AvaloniaXaml Remove="Assets/Resources/ColorsResources.axaml" />
+    <AvaloniaXaml Remove="Assets/Styles/AppStyles.axaml" />
+    <AvaloniaXaml Remove="Assets/Styles/LabelStyles.axaml" />
+    <AvaloniaXaml Remove="Assets/Styles/MenuButtonStyles.axaml" />
+    <AvaloniaXaml Remove="Assets/Styles/TextBlockStyles.axaml" />
+    <AvaloniaXaml Remove="Assets/Styles/TextBoxStyles.axaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- filen måste följa med till bin-mappen, annars hittar inte programmet den när det körs -->
+    <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
