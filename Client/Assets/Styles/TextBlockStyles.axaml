@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel>
+        <TextBlock Text="Test Text" />
+        <TextBlock Classes="pageTitle" Text="Westcoast Education" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- rubriken överst på varje sida -->
+  <Style Selector="TextBlock.pageTitle">
+    <Setter Property="FontSize" Value="36"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="TextAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0 0 0 30"/>
+  </Style>
+
+  <!-- felmeddelande i formulären -->
+  <Style Selector="TextBlock.error">
+    <Setter Property="Foreground" Value="{DynamicResource Danger}"/>
+    <Setter Property="TextAlignment" Value="Center"/>
+  </Style>
+</Styles>
