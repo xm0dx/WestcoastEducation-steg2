@@ -1,0 +1,16 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- penslar som hämtar sin färg från ColorsResources.axaml.
+       DynamicResource = slås upp när appen kör, så ett byte av färg slår igenom överallt -->
+  <SolidColorBrush x:Key="BackgroundColor" Color="{DynamicResource PrimaryBackgroundColor}"/>
+  <SolidColorBrush x:Key="ForegroundColor" Color="{DynamicResource PrimaryForegroundColor}"/>
+  <SolidColorBrush x:Key="SecondaryBackground" Color="{DynamicResource SecondaryBackgroundColor}"/>
+  <SolidColorBrush x:Key="Accent" Color="{DynamicResource AccentColor}"/>
+  <SolidColorBrush x:Key="Danger" Color="{DynamicResource DangerColor}"/>
+
+  <!-- menyn till vänster har en toning från mörkt till lite ljusare -->
+  <LinearGradientBrush x:Key="PrimaryBackgroundGradient" StartPoint="0% 0%" EndPoint="100% 0%">
+    <GradientStop Offset="0" Color="#0B1D33"/>
+    <GradientStop Offset="1" Color="#163A5F"/>
+  </LinearGradientBrush>
+</ResourceDictionary>
