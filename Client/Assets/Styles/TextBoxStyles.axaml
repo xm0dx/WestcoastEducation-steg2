@@ -1,0 +1,22 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20" Background="{DynamicResource BackgroundColor}">
+      <StackPanel Spacing="10">
+        <TextBox Text="Test Text" />
+        <TextBox Text="Westcoast" Classes="form" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- TextBox.form = rutorna i formulären, alla lika breda med en blå kant -->
+  <Style Selector="TextBox.form">
+    <Setter Property="MinWidth" Value="300" />
+    <Setter Property="MaxWidth" Value="300" />
+    <Setter Property="Background" Value="{DynamicResource SecondaryBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Accent}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="6" />
+  </Style>
+</Styles>

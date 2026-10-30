@@ -1,0 +1,51 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
+      <StackPanel Spacing="20">
+        <Button Content="Meny" />
+        <Button Classes="form" Content="Spara" />
+        <Button Classes="danger" Content="Ta bort" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- vanliga knappar, menyn till vänster -->
+  <Style Selector="Button">
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Padding" Value="15 10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+  </Style>
+
+  <!-- :pointerover = när musen är över knappen. /template/ ContentPresenter är delen inne i knappen
+       som ritar bakgrunden, därför måste man peka dit för att färgen ska ändras -->
+  <Style Selector="Button:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"/>
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}"/>
+  </Style>
+
+  <!-- Button.form = knapparna i formulären (Spara, Avbryt, Lägg till), runda med blå kant -->
+  <Style Selector="Button.form">
+    <Setter Property="Background" Value="{DynamicResource Accent}" />
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Padding" Value="25 8"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="MinWidth" Value="160" />
+    <Setter Property="CornerRadius" Value="20" />
+  </Style>
+
+  <Style Selector="Button.form:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="#1565C0"/>
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}"/>
+  </Style>
+
+  <!-- Button.danger = röd ikon för ta bort-knappen i listorna -->
+  <Style Selector="Button.danger">
+    <Setter Property="Foreground" Value="{DynamicResource Danger}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+  </Style>
+</Styles>
