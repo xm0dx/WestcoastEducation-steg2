@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- bara färgerna ligger här, penslarna som använder dem finns i AppResources.axaml.
+       vill man byta tema i hela appen ändrar man bara här -->
+  <Color x:Key="PrimaryForegroundColor">#F2F5F9</Color>
+  <Color x:Key="PrimaryBackgroundColor">#0B1D33</Color>
+  <Color x:Key="SecondaryBackgroundColor">#163A5F</Color>
+  <Color x:Key="AccentColor">#1E88E5</Color>
+  <!-- röd för ta bort-knappar -->
+  <Color x:Key="DangerColor">#B00020</Color>
+</ResourceDictionary>
