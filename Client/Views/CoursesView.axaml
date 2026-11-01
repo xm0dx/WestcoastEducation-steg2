@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Client.Views.CoursesView"
+             x:DataType="vm:CoursesViewModel">
+
+  <Design.DataContext>
+    <vm:CoursesViewModel></vm:CoursesViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="pageTitle" Text="{Binding PageTitle}"/>
+
+    <!-- rubrikraden, samma kolumner som raderna nedanför -->
+    <Border BorderBrush="{DynamicResource Accent}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
+      <Grid ColumnDefinitions="100,*,120,110,110,100,160">
+        <Label Content="Kursnr" />
+        <Label Grid.Column="1" Content="Titel" />
+        <Label Grid.Column="2" Content="Längd" />
+        <Label Grid.Column="3" Content="Start" />
+        <Label Grid.Column="4" Content="Slut" />
+        <Label Grid.Column="5" Content="Form" />
+        <Label Grid.Column="6" Content="Lärare" />
+      </Grid>
+    </Border>
+
+    <!-- ItemsControl ritar en rad per kurs i Courses. inne i DataTemplate är DataContext
+         den enskilda kursen, därför funkar {Binding Title} direkt -->
+    <ScrollViewer Height="450">
+      <ItemsControl ItemsSource="{Binding Courses}" Margin="0 10 0 0">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Grid ColumnDefinitions="100,*,120,110,110,100,160">
+              <Label Content="{Binding CourseNumber}" />
+              <Label Grid.Column="1" Content="{Binding Title}" />
+              <Label Grid.Column="2">
+                <!-- två värden i samma text: "10 veckor" -->
+                <Label.Content>
+                  <MultiBinding StringFormat="{}{0} {1}">
+                    <Binding Path="Duration" />
+                    <Binding Path="DurationUnit" />
+                  </MultiBinding>
+                </Label.Content>
+              </Label>
+              <Label Grid.Column="3" Content="{Binding StartDate, StringFormat='{}{0:yyyy-MM-dd}'}" />
+              <Label Grid.Column="4" Content="{Binding EndDate, StringFormat='{}{0:yyyy-MM-dd}'}" />
+              <Label Grid.Column="5" Content="{Binding Form}" />
+              <Label Grid.Column="6" Content="{Binding TeacherName}" />
+            </Grid>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+  </StackPanel>
+</UserControl>
