@@ -14,6 +14,15 @@
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}"/>
 
+    <!-- knappen ligger på kurssidan men commandet finns i MainWindowViewModel,
+         därför går bindningen upp till fönstret ($parent[Window]) -->
+    <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddCourseCommand}">
+      <StackPanel Orientation="Horizontal">
+        <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 2 8 0" />
+        <Label Content="Lägg till kurs" />
+      </StackPanel>
+    </Button>
+
     <!-- rubrikraden, samma kolumner som raderna nedanför -->
     <Border BorderBrush="{DynamicResource Accent}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
       <Grid ColumnDefinitions="100,*,120,110,110,100,160">

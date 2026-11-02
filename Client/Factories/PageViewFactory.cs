@@ -17,6 +17,7 @@ public class PageViewFactory : IPageViewFactory
         {
             PageViewsEnum.Home => new HomeViewModel(),
             PageViewsEnum.Courses => new CoursesViewModel(new CourseServices()),
+            PageViewsEnum.AddCourse => new AddCourseViewModel(new CourseServices()),
             _ => throw new InvalidOperationException("Sidan finns inte")
         };
     }
