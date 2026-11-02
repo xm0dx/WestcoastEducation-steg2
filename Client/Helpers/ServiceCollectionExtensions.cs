@@ -1,4 +1,6 @@
 using Client.Factories;
+using Client.Interfaces;
+using Client.Services;
 using Client.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,5 +15,8 @@ public static class ServiceCollectionExtensions
         // AddSingleton: ETT objekt som alla delar så länge appen kör
         collection.AddSingleton<MainWindowViewModel>();
         collection.AddSingleton<PageViewFactory>();
+
+        // "om någon ber om ett ICourseService, ge dem en CourseServices"
+        collection.AddTransient<ICourseService, CourseServices>();
     }
 }

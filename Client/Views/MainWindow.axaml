@@ -21,6 +21,12 @@
                         <Label Content="Hem" />
                     </StackPanel>
                 </Button>
+                <Button Command="{Binding GoToCoursesCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Label Padding="0 4" FontFamily="{DynamicResource IconFont}" Content="&#xe0fe;" />
+                        <Label Content="Kurser" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </Border>
         <!-- här visas sidan. Content är en ViewModel, ViewLocator byter den mot rätt View -->

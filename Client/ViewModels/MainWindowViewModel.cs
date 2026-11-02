@@ -23,4 +23,6 @@ public partial class MainWindowViewModel : ViewModelBase
     // varje knapp i menyn = ett namn in i fabriken, en ny sida ut
     [RelayCommand]
     private void GoToHome() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Home);
+    [RelayCommand]
+    private void GoToCourses() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Courses);
 }

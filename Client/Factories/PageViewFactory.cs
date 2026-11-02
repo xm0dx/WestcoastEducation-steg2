@@ -1,6 +1,7 @@
 using System;
 using Client.Enums;
 using Client.Interfaces;
+using Client.Services;
 using Client.ViewModels;
 
 namespace Client.Factories;
@@ -15,6 +16,7 @@ public class PageViewFactory : IPageViewFactory
         return page switch
         {
             PageViewsEnum.Home => new HomeViewModel(),
+            PageViewsEnum.Courses => new CoursesViewModel(new CourseServices()),
             _ => throw new InvalidOperationException("Sidan finns inte")
         };
     }
