@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Client.Views.AddCourseView"
+             x:DataType="vm:AddCourseViewModel">
+
+  <Design.DataContext>
+    <vm:AddCourseViewModel></vm:AddCourseViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
+
+    <Border HorizontalAlignment="Center" Padding="30" BorderBrush="{DynamicResource Accent}" BorderThickness="1" CornerRadius="8">
+      <StackPanel>
+        <!-- två kolumner: text till vänster, ruta till höger. en rad per fält -->
+        <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="160,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+          <Label Classes="form" HorizontalAlignment="Right" Content="Kursnummer"/>
+          <Label Classes="form" Grid.Row="1" HorizontalAlignment="Right" Content="Titel"/>
+          <Label Classes="form" Grid.Row="2" HorizontalAlignment="Right" Content="Längd"/>
+          <Label Classes="form" Grid.Row="3" HorizontalAlignment="Right" Content="Enhet"/>
+          <Label Classes="form" Grid.Row="4" HorizontalAlignment="Right" Content="Startdatum"/>
+          <Label Classes="form" Grid.Row="5" HorizontalAlignment="Right" Content="Slutdatum"/>
+          <Label Classes="form" Grid.Row="6" HorizontalAlignment="Right" Content="Distans"/>
+          <Label Classes="form" Grid.Row="7" HorizontalAlignment="Right" Content="Lärare"/>
+
+          <!-- Text binder till egenskaperna i AddCourseViewModel -->
+          <TextBox Classes="form" Grid.Column="1" Text="{Binding CourseNumber}" Watermark="t ex CS101" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="1" Text="{Binding Title}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="2" Text="{Binding Duration}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="3" Text="{Binding DurationUnit}" Watermark="veckor eller dagar" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="4" Text="{Binding StartDate}" Watermark="2026-01-15" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="5" Text="{Binding EndDate}" Watermark="2026-03-15" />
+          <!-- IsChecked binder till bool IsOnline -->
+          <CheckBox Grid.Column="1" Grid.Row="6" IsChecked="{Binding IsOnline}" Content="kursen är på distans" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="7" Text="{Binding TeacherName}" Watermark="kan lämnas tom" />
+        </Grid>
+
+        <!-- meddelande från ViewModeln, tomt tills något händer -->
+        <TextBlock Classes="error" Margin="0 20 0 0" Text="{Binding Message}" />
+
+        <StackPanel Spacing="20" Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button Classes="form" Command="{Binding SaveCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe248;" />
+              <Label Content="Spara" />
+            </StackPanel>
+          </Button>
+          <!-- avbryt byter sida, commandet ligger i MainWindowViewModel, därför $parent[Window] -->
+          <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToCoursesCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />
+              <Label Content="Avbryt" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>
