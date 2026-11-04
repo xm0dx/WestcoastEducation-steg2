@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Client.Views.StudentsView"
+             x:DataType="vm:StudentsViewModel">
+
+  <Design.DataContext>
+    <vm:StudentsViewModel></vm:StudentsViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="pageTitle" Text="{Binding PageTitle}"/>
+
+    <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddStudentCommand}">
+      <StackPanel Orientation="Horizontal">
+        <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 2 8 0" />
+        <Label Content="Lägg till studerande" />
+      </StackPanel>
+    </Button>
+
+    <Border BorderBrush="{DynamicResource Accent}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
+      <Grid ColumnDefinitions="*,150,150,*,120">
+        <Label Content="Namn" />
+        <Label Grid.Column="1" Content="Personnr" />
+        <Label Grid.Column="2" Content="Telefon" />
+        <Label Grid.Column="3" Content="Adress" />
+        <Label Grid.Column="4" Content="Ort" />
+      </Grid>
+    </Border>
+
+    <ScrollViewer Height="450">
+      <ItemsControl ItemsSource="{Binding Students}" Margin="0 10 0 0">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Grid ColumnDefinitions="*,150,150,*,120">
+              <Label>
+                <Label.Content>
+                  <MultiBinding StringFormat="{}{0} {1}">
+                    <Binding Path="FirstName" />
+                    <Binding Path="LastName" />
+                  </MultiBinding>
+                </Label.Content>
+              </Label>
+              <Label Grid.Column="1" Content="{Binding PersonalNumber}" />
+              <Label Grid.Column="2" Content="{Binding Phone}" />
+              <Label Grid.Column="3" Content="{Binding Address}" />
+              <Label Grid.Column="4" Content="{Binding City}" />
+            </Grid>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+  </StackPanel>
+</UserControl>
