@@ -27,4 +27,8 @@ public partial class MainWindowViewModel : ViewModelBase
     private void GoToCourses() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Courses);
     [RelayCommand]
     private void GoToAddCourse() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.AddCourse);
+    [RelayCommand]
+    private void GoToStudents() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Students);
+    [RelayCommand]
+    private void GoToAddStudent() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.AddStudent);
 }
