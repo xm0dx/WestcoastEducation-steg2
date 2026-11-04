@@ -19,5 +19,6 @@ public static class ServiceCollectionExtensions
         // "om någon ber om ett ICourseService, ge dem en CourseServices"
         collection.AddTransient<ICourseService, CourseServices>();
         collection.AddTransient<IStudentService, StudentServices>();
+        collection.AddTransient<ITeacherService, TeacherServices>();
     }
 }
