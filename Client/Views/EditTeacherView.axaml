@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Client.Views.EditTeacherView"
+             x:DataType="vm:EditTeacherViewModel">
+
+  <Design.DataContext>
+    <vm:EditTeacherViewModel></vm:EditTeacherViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
+
+    <Border HorizontalAlignment="Center" Padding="30" BorderBrush="{DynamicResource Accent}" BorderThickness="1" CornerRadius="8">
+      <StackPanel>
+        <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="160,*" RowDefinitions="Auto,Auto">
+          <Label Classes="form" HorizontalAlignment="Right" Content="Lärare"/>
+          <Label Classes="form" Grid.Row="1" HorizontalAlignment="Right" Content="Kompetensområde"/>
+
+          <!-- namnet visas bara, det är kompetensområdet som ska ändras -->
+          <Label Classes="form" Grid.Column="1" Content="{Binding Name}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="1" Text="{Binding KnowledgeArea}" Watermark="t ex C#, webb, databaser" />
+        </Grid>
+
+        <TextBlock Classes="error" Margin="0 20 0 0" Text="{Binding Message}" />
+
+        <StackPanel Spacing="20" Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button Classes="form" Command="{Binding SaveCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe248;" />
+              <Label Content="Spara" />
+            </StackPanel>
+          </Button>
+          <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToTeachersCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />
+              <Label Content="Tillbaka" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>
