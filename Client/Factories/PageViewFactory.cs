@@ -20,6 +20,8 @@ public class PageViewFactory : IPageViewFactory
             PageViewsEnum.AddCourse => new AddCourseViewModel(new CourseServices()),
             PageViewsEnum.Students => new StudentsViewModel(new StudentServices()),
             PageViewsEnum.AddStudent => new AddStudentViewModel(new StudentServices()),
+            PageViewsEnum.Teachers => new TeachersViewModel(new TeacherServices()),
+            PageViewsEnum.AddTeacher => new AddTeacherViewModel(new TeacherServices()),
             _ => throw new InvalidOperationException("Sidan finns inte")
         };
     }
@@ -28,6 +30,8 @@ public class PageViewFactory : IPageViewFactory
     {
         return page switch
         {
+            // redigeringssidan måste veta vilken lärare den ska visa, därför skickas id med hit
+            PageViewsEnum.EditTeacher => new EditTeacherViewModel(new TeacherServices(), id),
             _ => throw new InvalidOperationException("Sidan finns inte")
         };
     }

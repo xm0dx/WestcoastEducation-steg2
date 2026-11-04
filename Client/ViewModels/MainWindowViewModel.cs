@@ -31,4 +31,12 @@ public partial class MainWindowViewModel : ViewModelBase
     private void GoToStudents() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Students);
     [RelayCommand]
     private void GoToAddStudent() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.AddStudent);
+    [RelayCommand]
+    private void GoToTeachers() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Teachers);
+    [RelayCommand]
+    private void GoToAddTeacher() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.AddTeacher);
+
+    // commandet får _id från knappen på raden (CommandParameter) och skickar det vidare till fabriken
+    [RelayCommand]
+    private void GoToEditTeacher(string id) => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.EditTeacher, id);
 }
