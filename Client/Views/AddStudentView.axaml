@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Client.Views.AddStudentView"
+             x:DataType="vm:AddStudentViewModel">
+
+  <Design.DataContext>
+    <vm:AddStudentViewModel></vm:AddStudentViewModel>
+  </Design.DataContext>
+
+  <StackPanel>
+    <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
+
+    <Border HorizontalAlignment="Center" Padding="30" BorderBrush="{DynamicResource Accent}" BorderThickness="1" CornerRadius="8">
+      <StackPanel>
+        <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="160,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+          <Label Classes="form" HorizontalAlignment="Right" Content="Förnamn"/>
+          <Label Classes="form" Grid.Row="1" HorizontalAlignment="Right" Content="Efternamn"/>
+          <Label Classes="form" Grid.Row="2" HorizontalAlignment="Right" Content="Personnummer"/>
+          <Label Classes="form" Grid.Row="3" HorizontalAlignment="Right" Content="Telefon"/>
+          <Label Classes="form" Grid.Row="4" HorizontalAlignment="Right" Content="Adress"/>
+          <Label Classes="form" Grid.Row="5" HorizontalAlignment="Right" Content="Postnummer"/>
+          <Label Classes="form" Grid.Row="6" HorizontalAlignment="Right" Content="Ort"/>
+
+          <TextBox Classes="form" Grid.Column="1" Text="{Binding FirstName}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="1" Text="{Binding LastName}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="2" Text="{Binding PersonalNumber}" Watermark="ÅÅÅÅMMDD-XXXX" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="3" Text="{Binding Phone}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="4" Text="{Binding Address}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="5" Text="{Binding PostalCode}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="6" Text="{Binding City}" />
+        </Grid>
+
+        <TextBlock Classes="error" Margin="0 20 0 0" Text="{Binding Message}" />
+
+        <StackPanel Spacing="20" Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button Classes="form" Command="{Binding SaveCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe248;" />
+              <Label Content="Spara" />
+            </StackPanel>
+          </Button>
+          <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToStudentsCommand}">
+            <StackPanel Orientation="Horizontal">
+              <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />
+              <Label Content="Avbryt" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>
