@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Westcoast Education steg 2" id="we2">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="Westcoast Education steg 2 - modeller (samma som inlämning 1, plus RestDb-varianter med _id)" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="20" y="20" width="700" height="30" as="geometry"/></mxCell>
+<mxCell id="3" value="Person" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="20" y="70" width="190" height="170" as="geometry"/></mxCell>
+<mxCell id="4" value="FirstName" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="26" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="5" value="LastName" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="44" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="6" value="Phone" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="62" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="7" value="PersonalNumber" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="80" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="8" value="Address" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="98" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="9" value="PostalCode" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="116" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="10" value="City" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="134" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="11" value="FullName (get)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="3"><mxGeometry y="152" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="12" value="Student : Person" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="20" y="260" width="190" height="44" as="geometry"/></mxCell>
+<mxCell id="13" value="(inget extra)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="12"><mxGeometry y="26" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="14" value="Teacher : Person" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="240" y="260" width="190" height="44" as="geometry"/></mxCell>
+<mxCell id="15" value="KnowledgeArea" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="14"><mxGeometry y="26" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="16" value="Course" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="460" y="70" width="190" height="188" as="geometry"/></mxCell>
+<mxCell id="17" value="CourseNumber" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="26" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="18" value="Title" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="44" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="19" value="Duration" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="62" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="20" value="DurationUnit" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="80" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="21" value="StartDate" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="98" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="22" value="EndDate" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="116" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="23" value="IsOnline" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="134" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="24" value="TeacherName" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="152" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="25" value="Form / DurationText (get)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="16"><mxGeometry y="170" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="26" value="StudentRestDb : Student" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="20" y="340" width="190" height="44" as="geometry"/></mxCell>
+<mxCell id="27" value="_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="26"><mxGeometry y="26" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="28" value="TeacherRestDb : Teacher" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="240" y="340" width="190" height="44" as="geometry"/></mxCell>
+<mxCell id="29" value="_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="28"><mxGeometry y="26" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="30" value="CourseRestDb : Course" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="460" y="300" width="190" height="44" as="geometry"/></mxCell>
+<mxCell id="31" value="_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=11;html=1;" vertex="1" parent="30"><mxGeometry y="26" width="190" height="18" as="geometry"/></mxCell>
+<mxCell id="32" value="arv" style="endArrow=block;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="12" target="3"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="33" value="arv" style="endArrow=block;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="14" target="3"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="34" value="" style="endArrow=block;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="26" target="12"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="35" value="" style="endArrow=block;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="28" target="14"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="36" value="" style="endArrow=block;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="30" target="16"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="37" value="TeacherName (bara namnet, aggregering)" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="16" target="14"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="38" value="Lager: View -&gt; ViewModel -&gt; Interface -&gt; Service -&gt; HttpService -&gt; restdb" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="720" y="20" width="700" height="30" as="geometry"/></mxCell>
+<mxCell id="39" value="Views (axaml)
+MainWindow, HomeView
+CoursesView, AddCourseView
+StudentsView, AddStudentView
+TeachersView, AddTeacherView, EditTeacherView" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="720" y="70" width="230" height="110" as="geometry"/></mxCell>
+<mxCell id="40" value="ViewModels
+MainWindowViewModel (CurrentView)
+CoursesViewModel, AddCourseViewModel
+StudentsViewModel, AddStudentViewModel
+TeachersViewModel, AddTeacherViewModel, EditTeacherViewModel" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="720" y="210" width="230" height="120" as="geometry"/></mxCell>
+<mxCell id="41" value="Interfaces
+ICourseService, IStudentService, ITeacherService
+IHttpService&lt;T&gt;, IPageViewFactory" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="720" y="360" width="230" height="80" as="geometry"/></mxCell>
+<mxCell id="42" value="Services
+CourseServices, StudentServices, TeacherServices
+HttpService&lt;T&gt; (Get, Post, Put, Delete)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="720" y="470" width="230" height="80" as="geometry"/></mxCell>
+<mxCell id="43" value="restdb.io
+collections: courses, students, teachers
+x-apikey + BaseUrl i appsettings.json" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="720" y="580" width="230" height="80" as="geometry"/></mxCell>
+<mxCell id="44" value="Binding / Command" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="39" target="40"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="45" value="pratar bara med interfacet" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="40" target="41"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="46" value="DI: AddTransient&lt;I, Klass&gt;" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="41" target="42"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="47" value="https json" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="42" target="43"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="48" value="ViewLocator
+CoursesViewModel -&gt; CoursesView" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="990" y="210" width="200" height="50" as="geometry"/></mxCell>
+<mxCell id="49" value="PageViewFactory
+enum PageViewsEnum -&gt; ny ViewModel" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="990" y="280" width="200" height="50" as="geometry"/></mxCell>
+<mxCell id="50" value="Dynamiska resurser
+ColorsResources (färger)
+AppResources (penslar)
+Assets/Styles (stilar)
+återanvända från RunStore" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="990" y="70" width="200" height="90" as="geometry"/></mxCell>
+<mxCell id="51" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="48" target="39"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="52" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="49" target="40"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="53" value="DynamicResource" style="endArrow=open;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="50" target="39"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="54" value="Flöde: ta bort en kurs (samma som produkter i RunStore)" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="20" y="460" width="700" height="30" as="geometry"/></mxCell>
+<mxCell id="55" value="Klick på papperskorgen
+CommandParameter = CourseNumber" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="20" y="500" width="170" height="50" as="geometry"/></mxCell>
+<mxCell id="56" value="CoursesViewModel.Delete
+ShowDialog = true" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="210" y="500" width="170" height="50" as="geometry"/></mxCell>
+<mxCell id="57" value="Popup: Ja / Nej" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="400" y="500" width="120" height="50" as="geometry"/></mxCell>
+<mxCell id="58" value="Confirm: Find(courseNumber)
+-&gt; CourseRestDb med _id" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="20" y="580" width="170" height="50" as="geometry"/></mxCell>
+<mxCell id="59" value="Delete(_id)
+DELETE /courses/{_id}" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="210" y="580" width="170" height="50" as="geometry"/></mxCell>
+<mxCell id="60" value="LoadCourses()
+listan laddas om" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="400" y="580" width="170" height="50" as="geometry"/></mxCell>
+<mxCell id="61" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="55" target="56"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="62" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="56" target="57"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="63" value="Ja" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="57" target="58"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="64" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="58" target="59"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="65" value="" style="endArrow=block;endFill=1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="59" target="60"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="66" value="Nästa steg (VG)" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="720" y="690" width="400" height="30" as="geometry"/></mxCell>
+<mxCell id="67" value="- Uppdatera kurs (EditCourseViewModel, samma som EditTeacher)
+- Välja lärare till kurs ur en lista i stället för att skriva namnet
+- Felmeddelande i fönstret i stället för Console.WriteLine
+- Söka i listorna" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=8;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1"><mxGeometry x="720" y="720" width="470" height="90" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
