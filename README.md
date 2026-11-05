@@ -30,3 +30,8 @@ hantera kurser, studerande och lärare. Datan ligger i restdb.io.
 2. Kopiera `Client/appsettings.example.json` till `Client/appsettings.json` och
    fyll i din BaseUrl och ApiKey.
 3. `cd Client` och `dotnet run`.
+
+## Skiss
+
+`docs/arkitektur.drawio` visar modellerna, lagren (View, ViewModel, Interface, Service, restdb)
+och flödet när en kurs tas bort. Öppnas på https://app.diagrams.net (Arkiv, Öppna från, Enhet).
