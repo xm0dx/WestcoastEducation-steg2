@@ -15,8 +15,37 @@ public class Course
     // namnet på läraren som har kursen, tom om ingen är vald än
     public string TeacherName { get; set; } = string.Empty;
 
-    // för listan: visar "distans" eller "klassrum" i stället för true/false
-    public string Form => IsOnline ? "distans" : "klassrum";
+    // texter som listan visar, så vyn inte behöver räkna ut något själv
+    public string Form
+    {
+        get
+        {
+            if (IsOnline)
+            {
+                return "distans";
+            }
+            else
+            {
+                return "klassrum";
+            }
+        }
+    }
+
+    public string DurationText
+    {
+        get { return $"{Duration} {DurationUnit}"; }
+    }
+
+    // yyyy-MM-dd så att datumet ser likadant ut på alla datorer
+    public string StartDateText
+    {
+        get { return $"{StartDate:yyyy-MM-dd}"; }
+    }
+
+    public string EndDateText
+    {
+        get { return $"{EndDate:yyyy-MM-dd}"; }
+    }
 }
 
 // samma som Course men med restdb:s eget _id
