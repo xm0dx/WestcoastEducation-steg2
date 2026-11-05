@@ -24,7 +24,7 @@
     </Button>
 
     <!-- rubrikraden, samma kolumner som raderna nedanför -->
-    <Border BorderBrush="{DynamicResource Accent}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
+    <Border BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
       <Grid ColumnDefinitions="100,*,120,110,110,100,160,60">
         <Label Content="Kursnr" />
         <Label Grid.Column="1" Content="Titel" />
@@ -69,12 +69,12 @@
 
     <!-- Popup = liten ruta ovanpå sidan. IsOpen styrs av ShowDialog i CoursesViewModel -->
     <Popup IsOpen="{Binding ShowDialog}" Placement="Center">
-      <Border Background="{DynamicResource SecondaryBackground}" BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="1" Padding="30" CornerRadius="8">
+      <Border Background="{DynamicResource BackgroundColor}" BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="1" Padding="30" CornerRadius="8">
         <StackPanel Spacing="20">
           <TextBlock Text="Är du säker på att du vill ta bort kursen?" FontSize="18" />
           <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
             <Button Classes="form" Content="Nej" Command="{Binding CancelCommand}" />
-            <Button Classes="form" Content="Ja, ta bort" Command="{Binding ConfirmCommand}" Background="{DynamicResource Danger}" />
+            <Button Classes="form" Content="Ja" Command="{Binding ConfirmCommand}" />
           </StackPanel>
         </StackPanel>
       </Border>

@@ -2,50 +2,92 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Design.PreviewWith>
     <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
+      <!-- en knapp av varje sort i förhandsvisningen så man ser skillnaden -->
       <StackPanel Spacing="20">
-        <Button Content="Meny" />
-        <Button Classes="form" Content="Spara" />
-        <Button Classes="danger" Content="Ta bort" />
+        <Button>
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
+
+        <Button Classes="form">
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
+
+        <Button Classes="marko">
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
+
+        <Button Classes="danger">
+          <StackPanel Orientation="Horizontal">
+            <Label Padding="0 5" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" />
+            <Label FontSize="20" Content="Knapp"/>
+          </StackPanel>
+        </Button>
       </StackPanel>
     </Border>
   </Design.PreviewWith>
 
+  <!-- Add Styles Here -->
   <!-- vanliga knappar, menyn till vänster -->
   <Style Selector="Button">
     <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="20"/>
     <Setter Property="Padding" Value="15 10"/>
     <Setter Property="HorizontalAlignment" Value="Stretch"/>
   </Style>
 
-  <!-- :pointerover = när musen är över knappen. /template/ ContentPresenter är delen inne i knappen
-       som ritar bakgrunden, därför måste man peka dit för att färgen ska ändras -->
-  <Style Selector="Button:pointerover /template/ ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"/>
-    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}"/>
+  <!-- Button.marko = stor rund knapp med tjock ljus kant -->
+  <Style Selector="Button.marko">
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="40"/>
+    <Setter Property="Padding" Value="15 10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource ForegroundColor}"/>
+    <Setter Property="BorderThickness" Value="3"/>
+    <Setter Property="CornerRadius" Value="50"/>
   </Style>
 
-  <!-- Button.form = knapparna i formulären (Spara, Avbryt, Lägg till), runda med blå kant -->
+  <!-- Button.form = knapparna i formuläret (Spara, Avbryt, Lägg till produkt).
+       rund ram (CornerRadius 50), blå kant och minst 300 bred så alla blir lika stora -->
   <Style Selector="Button.form">
-    <Setter Property="Background" Value="{DynamicResource Accent}" />
-    <Setter Property="FontSize" Value="14"/>
-    <Setter Property="Padding" Value="25 8"/>
-    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="10"/>
+    <Setter Property="Padding" Value="30 7"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
     <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="MinWidth" Value="160" />
-    <Setter Property="CornerRadius" Value="20" />
+    <Setter Property="MinWidth" Value="250" />
+    <Setter Property="BorderBrush" Value="Blue" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="50" />
   </Style>
 
+  <!-- :pointerover = när musen är över knappen. /template/ ContentPresenter är delen inne i knappen
+       som faktiskt ritar bakgrunden, därför måste man peka dit för att färgen ska ändras -->
   <Style Selector="Button.form:pointerover /template/ ContentPresenter">
-    <Setter Property="Background" Value="#1565C0"/>
+    <Setter Property="Background" Value="#060681"/>
     <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}"/>
+    <Setter Property="BorderBrush" Value="#4472F2" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="FontWeight" Value="SemiBold"/>
   </Style>
 
   <!-- Button.danger = röd ikon för ta bort-knappen i listorna -->
   <Style Selector="Button.danger">
     <Setter Property="Foreground" Value="{DynamicResource Danger}" />
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Padding" Value="15 10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
   </Style>
 </Styles>

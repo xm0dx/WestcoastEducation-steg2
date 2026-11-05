@@ -14,7 +14,7 @@
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
 
-    <Border HorizontalAlignment="Center" Padding="30" BorderBrush="{DynamicResource Accent}" BorderThickness="1" CornerRadius="8">
+    <Border HorizontalAlignment="Center" Padding="30" BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="1" CornerRadius="8">
       <StackPanel>
         <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="160,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
           <Label Classes="form" HorizontalAlignment="Right" Content="Förnamn"/>
@@ -34,7 +34,7 @@
           <TextBox Classes="form" Grid.Column="1" Grid.Row="6" Text="{Binding City}" />
         </Grid>
 
-        <TextBlock Classes="error" Margin="0 20 0 0" Text="{Binding Message}" />
+        <TextBlock Foreground="{DynamicResource Danger}" TextAlignment="Center" Margin="0 20 0 0" Text="{Binding Message}" />
 
         <StackPanel Spacing="20" Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
           <Button Classes="form" Command="{Binding SaveCommand}">

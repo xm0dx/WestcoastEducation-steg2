@@ -21,7 +21,7 @@
       </StackPanel>
     </Button>
 
-    <Border BorderBrush="{DynamicResource Accent}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
+    <Border BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
       <Grid ColumnDefinitions="*,150,150,*,120">
         <Label Content="Namn" />
         <Label Grid.Column="1" Content="Personnr" />

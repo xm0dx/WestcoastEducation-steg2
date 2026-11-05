@@ -21,7 +21,7 @@
       </StackPanel>
     </Button>
 
-    <Border BorderBrush="{DynamicResource Accent}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
+    <Border BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
       <Grid ColumnDefinitions="*,150,150,*,120,60">
         <Label Content="Namn" />
         <Label Grid.Column="1" Content="Personnr" />
@@ -51,7 +51,7 @@
               <Label Grid.Column="4" Content="{Binding City}" />
               <!-- ändra byter sida, så den går upp till fönstret. CommandParameter skickar med _id
                    så redigeringssidan vet vilken lärare det gäller -->
-              <Button Grid.Column="5" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToEditTeacherCommand}" CommandParameter="{Binding _id}" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Foreground="{DynamicResource Accent}" Padding="10 5" />
+              <Button Grid.Column="5" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToEditTeacherCommand}" CommandParameter="{Binding _id}" FontFamily="{DynamicResource IconFont}" Content="&#xebc6;" Foreground="Green" Padding="10 5" />
             </Grid>
           </DataTemplate>
         </ItemsControl.ItemTemplate>

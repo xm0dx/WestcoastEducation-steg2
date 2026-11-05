@@ -3,8 +3,8 @@
              xmlns:local="using:Client"
              x:Class="Client.App"
              RequestedThemeVariant="Dark">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
-    <!-- ViewLocator hittar rätt View till varje ViewModel via namnet -->
     <Application.DataTemplates>
         <local:ViewLocator></local:ViewLocator>
     </Application.DataTemplates>
@@ -29,4 +29,5 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+
 </Application>
