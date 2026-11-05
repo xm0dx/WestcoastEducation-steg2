@@ -14,16 +14,15 @@ public partial class CoursesViewModel : ViewModelBase
     // interfacet, inte klassen. ViewModeln vet inte var kurserna kommer ifrån
     private readonly ICourseService _courseService;
 
-    // ObservableCollection säger till listan i vyn när något läggs till eller tas bort
     [ObservableProperty]
-    public partial ObservableCollection<CourseRestDb> Courses { get; set; } = [];
+    public partial ObservableCollection<Course> Courses { get; set; } = [];
 
     // true = popupen "är du säker?" visas. vyn binder Popup.IsOpen till den här
     [ObservableProperty]
     public partial bool ShowDialog { get; set; }
 
-    // kursen som användaren klickade ta bort på, sparas tills hen svarat i popupen
-    private CourseRestDb? _courseToDelete;
+    // kursnumret som användaren klickade ta bort på, sparas tills hen svarat i popupen
+    private string? _courseNumberToDelete;
 
     // tom konstruktor bara för förhandsvisningen i editorn
     public CoursesViewModel()
@@ -41,12 +40,11 @@ public partial class CoursesViewModel : ViewModelBase
         Init();
     }
 
-    // ta bort-knappen i listan tar inte bort direkt, den öppnar popupen så användaren får bekräfta.
-    // raden skickar med hela kursen som CommandParameter, då har vi _id direkt
+    // ta bort-knappen i listan tar inte bort direkt, den öppnar popupen så användaren får bekräfta
     [RelayCommand]
-    private void Delete(CourseRestDb course)
+    private void Delete(string courseNumber)
     {
-        _courseToDelete = course;
+        _courseNumberToDelete = courseNumber;
         ShowDialog = true;
     }
 
@@ -55,26 +53,32 @@ public partial class CoursesViewModel : ViewModelBase
     private void Cancel()
     {
         ShowDialog = false;
-        _courseToDelete = null;
+        _courseNumberToDelete = null;
     }
 
-    // Ja i popupen: nu tas kursen bort på riktigt och listan laddas om
+    // Ja i popupen: nu händer det på riktigt.
+    // knappen skickade kursnumret, men restdb vill ha sitt eget _id för att ta bort.
+    // därför: hämta kursen först (Find ger CourseRestDb med _id), ta bort, ladda om listan
     [RelayCommand]
     private async Task Confirm()
     {
         ShowDialog = false;
-        if (_courseToDelete is null) return;
+        if (_courseNumberToDelete is null) return;
 
         try
         {
-            await _courseService.Delete(_courseToDelete._id);
-            await LoadCourses();
+            CourseRestDb course = await _courseService.Find(_courseNumberToDelete);
+            if (course is not null)
+            {
+                await _courseService.Delete(course._id);
+                await LoadCourses();
+            }
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
-        _courseToDelete = null;
+        _courseNumberToDelete = null;
     }
 
     private async void Init()
@@ -86,7 +90,7 @@ public partial class CoursesViewModel : ViewModelBase
     {
         try
         {
-            Courses = new ObservableCollection<CourseRestDb>(await _courseService.List());
+            Courses = new ObservableCollection<Course>(await _courseService.List());
         }
         catch (Exception ex)
         {

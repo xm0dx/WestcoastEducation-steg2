@@ -20,10 +20,18 @@ public class CourseServices : ICourseService
         await httpService.Delete("courses", id);
     }
 
-    // listan hämtas som CourseRestDb så vi får med _id, det behövs för att kunna ta bort
-    public async Task<List<CourseRestDb>> List()
+    // hämtar EN kurs på kursnummer. svaret är CourseRestDb så vi får med _id
+    public async Task<CourseRestDb> Find(string courseNumber)
     {
         var httpService = new HttpService<CourseRestDb>();
+        // bygger json-villkoret som text: {"courseNumber":"CS101"}
+        var searchCriteria = "{\"courseNumber\":" + "\"" + courseNumber + "\"}";
+        return await httpService.Get("courses", searchCriteria);
+    }
+
+    public async Task<List<Course>> List()
+    {
+        var httpService = new HttpService<Course>();
         return await httpService.Get("courses");
     }
 }

@@ -15,17 +15,16 @@
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}"/>
 
     <!-- knappen ligger på kurssidan men commandet finns i MainWindowViewModel,
-         därför går bindningen upp till fönstret ($parent[Window]) -->
-    <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddCourseCommand}">
+         därför går bindningen upp till fönstret ($parent[Window]) och dess DataContext -->
+    <Button HorizontalAlignment="Left" Classes="form" MaxWidth="300" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddCourseCommand}">
       <StackPanel Orientation="Horizontal">
-        <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 2 8 0" />
+        <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 5 5 0" />
         <Label Content="Lägg till kurs" />
       </StackPanel>
     </Button>
 
-    <!-- rubrikraden, samma kolumner som raderna nedanför -->
-    <Border BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="0 0 0 1" Padding="0 20 0 5">
-      <Grid ColumnDefinitions="100,*,120,110,110,100,160,60">
+    <Border BorderBrush="White" BorderThickness="0 0 0 1" Padding="0 50 0 5">
+      <Grid ColumnDefinitions="100,*,120,110,110,100,160,60" ShowGridLines="False">
         <Label Content="Kursnr" />
         <Label Grid.Column="1" Content="Titel" />
         <Label Grid.Column="2" Content="Längd" />
@@ -33,48 +32,42 @@
         <Label Grid.Column="4" Content="Slut" />
         <Label Grid.Column="5" Content="Form" />
         <Label Grid.Column="6" Content="Lärare" />
+        <Label Grid.Column="7"/>
       </Grid>
     </Border>
-
-    <!-- ItemsControl ritar en rad per kurs i Courses. inne i DataTemplate är DataContext
-         den enskilda kursen, därför funkar {Binding Title} direkt -->
-    <ScrollViewer Height="450">
+    <!-- ScrollViewer: listan får en fast höjd och en rullist när kurserna inte får plats -->
+    <ScrollViewer Height="400">
+      <!-- ItemsControl ritar en rad per kurs i Courses. inne i DataTemplate är DataContext
+           den enskilda kursen, därför funkar {Binding Title} direkt -->
       <ItemsControl ItemsSource="{Binding Courses}" Margin="0 10 0 0">
         <ItemsControl.ItemTemplate>
           <DataTemplate>
-            <Grid ColumnDefinitions="100,*,120,110,110,100,160,60">
+            <Grid ColumnDefinitions="100,*,120,110,110,100,160,60" ShowGridLines="False">
               <Label Content="{Binding CourseNumber}" />
               <Label Grid.Column="1" Content="{Binding Title}" />
-              <Label Grid.Column="2">
-                <!-- två värden i samma text: "10 veckor" -->
-                <Label.Content>
-                  <MultiBinding StringFormat="{}{0} {1}">
-                    <Binding Path="Duration" />
-                    <Binding Path="DurationUnit" />
-                  </MultiBinding>
-                </Label.Content>
-              </Label>
-              <Label Grid.Column="3" Content="{Binding StartDate, StringFormat='{}{0:yyyy-MM-dd}'}" />
-              <Label Grid.Column="4" Content="{Binding EndDate, StringFormat='{}{0:yyyy-MM-dd}'}" />
+              <Label Grid.Column="2" Content="{Binding DurationText}" />
+              <Label Grid.Column="3" Content="{Binding StartDateText}" />
+              <Label Grid.Column="4" Content="{Binding EndDateText}" />
               <Label Grid.Column="5" Content="{Binding Form}" />
               <Label Grid.Column="6" Content="{Binding TeacherName}" />
-              <!-- ta bort stannar på sidan, så den går bara upp till CoursesViewModel ($parent[UserControl]).
-                   CommandParameter="{Binding}" = skicka med hela kursen på raden -->
-              <Button Classes="danger" Grid.Column="7" Command="{Binding $parent[UserControl].((vm:CoursesViewModel)DataContext).DeleteCommand}" CommandParameter="{Binding}" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 5" />
+              <!-- ta bort stannar på sidan, så den går bara upp till CoursesViewModel ($parent[UserControl]) -->
+              <Button Classes="danger" Grid.Column="7" Command="{Binding $parent[UserControl].DataContext.DeleteCommand}" CommandParameter="{Binding CourseNumber}" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 5 0 10"></Button>
             </Grid>
           </DataTemplate>
         </ItemsControl.ItemTemplate>
       </ItemsControl>
     </ScrollViewer>
 
-    <!-- Popup = liten ruta ovanpå sidan. IsOpen styrs av ShowDialog i CoursesViewModel -->
+    <!-- Popup = liten ruta som visas ovanpå sidan. IsOpen styrs av ShowDialog i CoursesViewModel -->
     <Popup IsOpen="{Binding ShowDialog}" Placement="Center">
-      <Border Background="{DynamicResource BackgroundColor}" BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="1" Padding="30" CornerRadius="8">
-        <StackPanel Spacing="20">
-          <TextBlock Text="Är du säker på att du vill ta bort kursen?" FontSize="18" />
-          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
-            <Button Classes="form" Content="Nej" Command="{Binding CancelCommand}" />
-            <Button Classes="form" Content="Ja" Command="{Binding ConfirmCommand}" />
+      <Border Padding="30" Background="{DynamicResource BackgroundColor}" BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="2">
+        <StackPanel>
+          <StackPanel Spacing="20">
+            <TextBlock Padding="20" Text="Är du säker på att du vill ta bort kursen?" FontSize="30" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Command="{Binding ConfirmCommand}">Ja</Button>
+            <Button Command="{Binding CancelCommand}">Nej</Button>
           </StackPanel>
         </StackPanel>
       </Border>
