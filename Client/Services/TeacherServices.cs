@@ -14,24 +14,24 @@ public class TeacherServices : ITeacherService
         await httpService.Post("teachers", teacher);
     }
 
-    // hämtar EN lärare på restdb:s _id. villkoret skrivs som json: {"_id":"..."}
-    public async Task<TeacherRestDb> Find(string id)
+    // hämtar EN lärare på personnummer. svaret är TeacherRestDb så vi får med _id
+    public async Task<TeacherRestDb> Find(string personalNumber)
     {
         var httpService = new HttpService<TeacherRestDb>();
-        var searchCriteria = "{\"_id\":" + "\"" + id + "\"}";
+        var searchCriteria = "{\"personalNumber\":" + "\"" + personalNumber + "\"}";
         return await httpService.Get("teachers", searchCriteria);
     }
 
-    public async Task<List<TeacherRestDb>> List()
+    public async Task<List<Teacher>> List()
     {
-        var httpService = new HttpService<TeacherRestDb>();
+        var httpService = new HttpService<Teacher>();
         return await httpService.Get("teachers");
     }
 
-    // Put byter ut hela läraren i restdb mot den vi skickar in
-    public async Task Update(Teacher teacher, string id)
+    // Put byter ut läraren i restdb mot den vi skickar in, _objectId är restdb:s _id
+    public async Task Update(Teacher teacher, string _objectId)
     {
         var httpService = new HttpService<Teacher>();
-        await httpService.Put("teachers", teacher, id);
+        await httpService.Put("teachers", teacher, _objectId);
     }
 }

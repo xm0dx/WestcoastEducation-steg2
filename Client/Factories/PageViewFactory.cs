@@ -30,7 +30,7 @@ public class PageViewFactory : IPageViewFactory
     {
         return page switch
         {
-            // redigeringssidan måste veta vilken lärare den ska visa, därför skickas id med hit
+            // redigeringssidan måste veta vilken lärare den ska visa, därför skickas personnumret med hit
             PageViewsEnum.EditTeacher => new EditTeacherViewModel(new TeacherServices(), id),
             _ => throw new InvalidOperationException("Sidan finns inte")
         };

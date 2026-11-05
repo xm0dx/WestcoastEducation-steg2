@@ -8,21 +8,41 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Client.ViewModels;
 
-// sidan för att hantera en lärares kompetensområde.
-// flödet: knappen på raden skickar _id -> MainWindowViewModel.GoToEditTeacher -> fabriken
-// -> new EditTeacherViewModel(tjänst, id) -> Init hämtar läraren -> rutorna fylls i
+// sidan för att ändra en lärare, framför allt kompetensområdet.
+// flödet: knappen på raden skickar personnumret -> MainWindowViewModel.GoToEditTeacher -> fabriken
+// -> new EditTeacherViewModel(tjänst, personnummer) -> Init hämtar läraren -> rutorna fylls i.
+// samma upplägg som EditProductViewModel i RunStore
 public partial class EditTeacherViewModel : ViewModelBase
 {
     private readonly ITeacherService _teacherService;
 
-    // restdb:s _id, måste med i adressen när vi uppdaterar
-    private readonly string _id = string.Empty;
+    // personnumret som kom med från listan
+    private readonly string _personalNumber = string.Empty;
 
-    // läraren som hämtades, vi ändrar bara kompetensområdet och skickar tillbaka resten som det var
-    private TeacherRestDb? _teacher;
+    // restdb:s _id, det måste med i adressen vid uppdatering
+    private string _objectId = string.Empty;
+
+    // en egenskap per ruta. [ObservableProperty] gör att rutorna fylls när vi hämtat läraren
+    [ObservableProperty]
+    public partial string FirstName { get; set; } = string.Empty;
 
     [ObservableProperty]
-    public partial string Name { get; set; } = string.Empty;
+    public partial string LastName { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial string PersonalNumber { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial string Phone { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial string Address { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial string PostalCode { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial string City { get; set; } = string.Empty;
 
     [ObservableProperty]
     public partial string KnowledgeArea { get; set; } = string.Empty;
@@ -30,28 +50,41 @@ public partial class EditTeacherViewModel : ViewModelBase
     [ObservableProperty]
     public partial string Message { get; set; } = string.Empty;
 
-    // bara för förhandsvisningen i editorn
+    // bara för förhandsvisningen i editorn, hämtar ingen lärare
     public EditTeacherViewModel()
     {
         _teacherService = new TeacherServices();
-        PageTitle = "Kompetensområde";
+        PageTitle = "Uppdatera lärare: ";
     }
 
-    public EditTeacherViewModel(ITeacherService teacherService, string id)
+    public EditTeacherViewModel(ITeacherService teacherService, string personalNumber)
     {
         _teacherService = teacherService;
-        _id = id;
-        PageTitle = "Kompetensområde";
+        PageTitle = "Uppdatera lärare: " + personalNumber;
+        _personalNumber = personalNumber;
         Init();
     }
 
     private async void Init()
     {
+        await GetTeacher();
+    }
+
+    // hämtar läraren och lägger värdena i rutorna
+    private async Task GetTeacher()
+    {
         try
         {
-            _teacher = await _teacherService.Find(_id);
-            Name = $"{_teacher.FirstName} {_teacher.LastName}";
-            KnowledgeArea = _teacher.KnowledgeArea;
+            TeacherRestDb teacher = await _teacherService.Find(_personalNumber);
+            _objectId = teacher._id;
+            FirstName = teacher.FirstName;
+            LastName = teacher.LastName;
+            PersonalNumber = teacher.PersonalNumber;
+            Phone = teacher.Phone;
+            Address = teacher.Address;
+            PostalCode = teacher.PostalCode;
+            City = teacher.City;
+            KnowledgeArea = teacher.KnowledgeArea;
         }
         catch (Exception ex)
         {
@@ -62,25 +95,23 @@ public partial class EditTeacherViewModel : ViewModelBase
     [RelayCommand]
     private async Task Save()
     {
-        if (_teacher is null) return;
-
-        // ett nytt Teacher-objekt utan _id, restdb vill inte ha _id i det vi skickar
+        // ett Teacher-objekt utan _id, restdb vill inte ha _id i det vi skickar
         Teacher teacher = new()
         {
-            FirstName = _teacher.FirstName,
-            LastName = _teacher.LastName,
-            PersonalNumber = _teacher.PersonalNumber,
-            Phone = _teacher.Phone,
-            Address = _teacher.Address,
-            PostalCode = _teacher.PostalCode,
-            City = _teacher.City,
+            FirstName = FirstName,
+            LastName = LastName,
+            PersonalNumber = PersonalNumber,
+            Phone = Phone,
+            Address = Address,
+            PostalCode = PostalCode,
+            City = City,
             KnowledgeArea = KnowledgeArea
         };
 
         try
         {
-            await _teacherService.Update(teacher, _id);
-            Message = "Kompetensområdet är sparat.";
+            await _teacherService.Update(teacher, _objectId);
+            Message = "Läraren är uppdaterad.";
         }
         catch (Exception ex)
         {

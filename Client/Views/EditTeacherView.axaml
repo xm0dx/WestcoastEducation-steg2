@@ -11,18 +11,31 @@
     <vm:EditTeacherViewModel></vm:EditTeacherViewModel>
   </Design.DataContext>
 
+  <!-- samma formulär som för ny lärare, men rutorna är redan fyllda med lärarens uppgifter.
+       TextBox är TwoWay: värdet från koden visas i rutan och det man skriver går tillbaka -->
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
 
     <Border HorizontalAlignment="Center" Padding="30" BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="1" CornerRadius="8">
       <StackPanel>
-        <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="160,*" RowDefinitions="Auto,Auto">
-          <Label Classes="form" HorizontalAlignment="Right" Content="Lärare"/>
-          <Label Classes="form" Grid.Row="1" HorizontalAlignment="Right" Content="Kompetensområde"/>
+        <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="160,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+          <Label Classes="form" HorizontalAlignment="Right" Content="Förnamn"/>
+          <Label Classes="form" Grid.Row="1" HorizontalAlignment="Right" Content="Efternamn"/>
+          <Label Classes="form" Grid.Row="2" HorizontalAlignment="Right" Content="Personnummer"/>
+          <Label Classes="form" Grid.Row="3" HorizontalAlignment="Right" Content="Telefon"/>
+          <Label Classes="form" Grid.Row="4" HorizontalAlignment="Right" Content="Adress"/>
+          <Label Classes="form" Grid.Row="5" HorizontalAlignment="Right" Content="Postnummer"/>
+          <Label Classes="form" Grid.Row="6" HorizontalAlignment="Right" Content="Ort"/>
+          <Label Classes="form" Grid.Row="7" HorizontalAlignment="Right" Content="Kompetensområde"/>
 
-          <!-- namnet visas bara, det är kompetensområdet som ska ändras -->
-          <Label Classes="form" Grid.Column="1" Content="{Binding Name}" />
-          <TextBox Classes="form" Grid.Column="1" Grid.Row="1" Text="{Binding KnowledgeArea}" Watermark="t ex C#, webb, databaser" />
+          <TextBox Classes="form" Grid.Column="1" Text="{Binding FirstName}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="1" Text="{Binding LastName}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="2" Text="{Binding PersonalNumber}" Watermark="ÅÅÅÅMMDD-XXXX" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="3" Text="{Binding Phone}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="4" Text="{Binding Address}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="5" Text="{Binding PostalCode}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="6" Text="{Binding City}" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="7" Text="{Binding KnowledgeArea}" Watermark="t ex C#, webb, databaser" />
         </Grid>
 
         <TextBlock Foreground="{DynamicResource Danger}" TextAlignment="Center" Margin="0 20 0 0" Text="{Binding Message}" />
