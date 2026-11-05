@@ -13,7 +13,7 @@ public partial class StudentsViewModel : ViewModelBase
     private readonly IStudentService _studentService;
 
     [ObservableProperty]
-    public partial ObservableCollection<StudentRestDb> Students { get; set; } = [];
+    public partial ObservableCollection<Student> Students { get; set; } = [];
 
     public StudentsViewModel()
     {
@@ -37,7 +37,7 @@ public partial class StudentsViewModel : ViewModelBase
     {
         try
         {
-            Students = new ObservableCollection<StudentRestDb>(await _studentService.List());
+            Students = new ObservableCollection<Student>(await _studentService.List());
         }
         catch (Exception ex)
         {

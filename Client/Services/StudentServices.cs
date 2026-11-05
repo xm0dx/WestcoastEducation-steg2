@@ -14,9 +14,9 @@ public class StudentServices : IStudentService
         await httpService.Post("students", student);
     }
 
-    public async Task<List<StudentRestDb>> List()
+    public async Task<List<Student>> List()
     {
-        var httpService = new HttpService<StudentRestDb>();
+        var httpService = new HttpService<Student>();
         return await httpService.Get("students");
     }
 }

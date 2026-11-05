@@ -7,5 +7,5 @@ namespace Client.Interfaces;
 public interface IStudentService
 {
     Task Add(Student student);
-    Task<List<StudentRestDb>> List();
+    Task<List<Student>> List();
 }
