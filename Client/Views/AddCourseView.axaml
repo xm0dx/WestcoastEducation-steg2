@@ -14,10 +14,8 @@
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
 
-    <!-- Border utan kant, används bara för att centrera formuläret och ge luft runt det -->
     <Border HorizontalAlignment="Center" Padding="0 30" BorderBrush="White" BorderThickness="0">
       <StackPanel>
-        <!-- två kolumner: text till vänster, ruta till höger. en rad per fält -->
         <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="200,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
           <Label Classes="form" HorizontalAlignment="Right" Content="Kursnummer"/>
           <Label Classes="form" Grid.Row="1" HorizontalAlignment="Right" Content="Titel"/>
@@ -28,19 +26,16 @@
           <Label Classes="form" Grid.Row="6" HorizontalAlignment="Right" Content="Distans"/>
           <Label Classes="form" Grid.Row="7" HorizontalAlignment="Right" Content="Lärare"/>
 
-          <!-- Text binder till egenskaperna i AddCourseViewModel -->
           <TextBox Grid.Column="1" Text="{Binding CourseNumber}" Watermark="t ex CS101" HorizontalAlignment="Left" />
           <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Title}" HorizontalAlignment="Left" />
           <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Duration}" HorizontalAlignment="Left" />
           <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding DurationUnit}" Watermark="veckor eller dagar" HorizontalAlignment="Left" />
           <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding StartDate}" Watermark="2026-01-15" HorizontalAlignment="Left" />
           <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding EndDate}" Watermark="2026-03-15" HorizontalAlignment="Left" />
-          <!-- IsChecked binder till bool IsOnline -->
           <CheckBox Grid.Column="1" Grid.Row="6" IsChecked="{Binding IsOnline}" Content="kursen är på distans" />
           <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding TeacherName}" Watermark="kan lämnas tom" HorizontalAlignment="Left" />
         </Grid>
 
-        <!-- meddelande från ViewModeln, tomt tills något händer -->
         <TextBlock Foreground="{DynamicResource Danger}" TextAlignment="Center" Margin="0 20 0 0" Text="{Binding Message}" />
 
         <StackPanel Spacing="20" Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -50,7 +45,6 @@
               <Label Content="Spara" />
             </StackPanel>
           </Button>
-          <!-- avbryt byter sida, commandet ligger i MainWindowViewModel, därför $parent[Window] -->
           <Button Classes="form" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToCoursesCommand}">
             <StackPanel Orientation="Horizontal">
               <Label Padding="5" FontFamily="{DynamicResource IconFont}" Content="&#xe08a;" />

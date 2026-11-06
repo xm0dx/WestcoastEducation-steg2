@@ -11,12 +11,9 @@
     <vm:EditTeacherViewModel></vm:EditTeacherViewModel>
   </Design.DataContext>
 
-  <!-- samma formulär som för ny lärare, men rutorna är redan fyllda med lärarens uppgifter.
-       TextBox är TwoWay: värdet från koden visas i rutan och det man skriver går tillbaka -->
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
 
-    <!-- Border = en ram runt formuläret, CornerRadius rundar hörnen. samma som i EditProductView -->
     <Border HorizontalAlignment="Center" Padding="30" BorderBrush="#3B82F6" BorderThickness="1" CornerRadius="8">
       <StackPanel>
         <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="150,300" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">

@@ -11,11 +11,9 @@
   </Design.PreviewWith>
 
   <!-- Add Styles Here -->
-  <!-- rubriken överst på varje sida -->
   <Style Selector="TextBlock.pageTitle">
     <Setter Property="FontSize" Value="40"/>
     <Setter Property="TextAlignment" Value="Center"/>
-    <!-- luft under rubriken så innehållet inte klistrar fast -->
     <Setter Property="Margin" Value="0 0 0 40"/>
   </Style>
 </Styles>

@@ -14,7 +14,6 @@
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}" />
 
-    <!-- Border utan kant, används bara för att centrera formuläret och ge luft runt det -->
     <Border HorizontalAlignment="Center" Padding="0 30" BorderBrush="White" BorderThickness="0">
       <StackPanel>
         <Grid RowSpacing="10" ColumnSpacing="10" ColumnDefinitions="200,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">

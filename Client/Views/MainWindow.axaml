@@ -9,12 +9,10 @@
         x:DataType="vm:MainWindowViewModel"
         Title="Westcoast Education">
 
-    <!-- Design.DataContext används bara av förhandsvisningen i editorn. -->
     <Design.DataContext>
         <vm:MainWindowViewModel></vm:MainWindowViewModel>
     </Design.DataContext>
 
-    <!-- två kolumner: menyn (Auto = så bred som innehållet) och sidan (* = resten). samma upplägg som RunStore -->
     <Grid ColumnDefinitions="Auto,*" Background="{DynamicResource BackgroundColor}">
         <Border Padding="10" Background="{DynamicResource PrimaryBackgroundGradient}">
             <Grid RowDefinitions="*,Auto">
@@ -23,7 +21,6 @@
                         <Label Padding="0 10" FontSize="40" FontFamily="{DynamicResource IconFont}" Content="&#xe2fe;" />
                         <TextBlock VerticalAlignment="Center" Text="Westcoast Education" FontSize="20" Foreground="{DynamicResource ForegroundColor}" />
                     </StackPanel>
-                    <!-- Command binder till GoToHomeCommand som [RelayCommand] skapade av metoden GoToHome -->
                     <Button Command="{Binding GoToHomeCommand}" >
                         <StackPanel Orientation="Horizontal" Spacing="10">
                             <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
@@ -57,7 +54,6 @@
                     Content="&#xe270;" ></Button>
             </Grid>
         </Border>
-        <!-- här visas sidan. Content är en ViewModel, ViewLocator byter den mot rätt View -->
         <UserControl Grid.Column="1" Padding="20" Content="{Binding CurrentView}" />
     </Grid>
 </Window>

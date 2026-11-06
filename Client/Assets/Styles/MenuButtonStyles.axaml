@@ -2,7 +2,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Design.PreviewWith>
     <Border Padding="20" Background="{DynamicResource PrimaryBackgroundGradient}">
-      <!-- en knapp av varje sort i förhandsvisningen så man ser skillnaden -->
       <StackPanel Spacing="20">
         <Button>
           <StackPanel Orientation="Horizontal">
@@ -36,7 +35,6 @@
   </Design.PreviewWith>
 
   <!-- Add Styles Here -->
-  <!-- vanliga knappar, menyn till vänster -->
   <Style Selector="Button">
     <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
@@ -45,7 +43,6 @@
     <Setter Property="HorizontalAlignment" Value="Stretch"/>
   </Style>
 
-  <!-- Button.marko = stor rund knapp med tjock ljus kant -->
   <Style Selector="Button.marko">
     <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
@@ -57,8 +54,6 @@
     <Setter Property="CornerRadius" Value="50"/>
   </Style>
 
-  <!-- Button.form = knapparna i formuläret (Spara, Avbryt, Lägg till produkt).
-       rund ram (CornerRadius 50), blå kant och minst 300 bred så alla blir lika stora -->
   <Style Selector="Button.form">
     <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
@@ -72,8 +67,6 @@
     <Setter Property="CornerRadius" Value="50" />
   </Style>
 
-  <!-- :pointerover = när musen är över knappen. /template/ ContentPresenter är delen inne i knappen
-       som faktiskt ritar bakgrunden, därför måste man peka dit för att färgen ska ändras -->
   <Style Selector="Button.form:pointerover /template/ ContentPresenter">
     <Setter Property="Background" Value="#060681"/>
     <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}"/>
@@ -82,7 +75,6 @@
     <Setter Property="FontWeight" Value="SemiBold"/>
   </Style>
 
-  <!-- Button.danger = röd ikon för ta bort-knappen i listorna -->
   <Style Selector="Button.danger">
     <Setter Property="Foreground" Value="{DynamicResource Danger}" />
     <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />

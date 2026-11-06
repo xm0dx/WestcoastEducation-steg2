@@ -31,7 +31,6 @@
       </Grid>
     </Border>
 
-    <!-- ScrollViewer: listan får en fast höjd och en rullist när det blir många -->
     <ScrollViewer Height="400">
       <ItemsControl ItemsSource="{Binding Students}" Margin="0 10 0 0">
         <ItemsControl.ItemTemplate>

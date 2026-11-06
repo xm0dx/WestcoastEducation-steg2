@@ -2,8 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <!-- Add Resources Here -->
 
-  <!-- penslar som hämtar sin färg från ColorsResources.axaml.
-       vill man byta färg i hela appen ändrar man bara där -->
   <SolidColorBrush x:Key="BackgroundColor" Color="{DynamicResource PrimaryBackgroundColor}"/>
   <SolidColorBrush x:Key="ForegroundColor" Color="{DynamicResource PrimaryForegroundColor}"/>
   <SolidColorBrush x:Key="Danger" Color="{DynamicResource DangerColor}"/>
@@ -12,6 +10,5 @@
     <GradientStop Offset="0" Color="#04041F"/>
     <GradientStop Offset="1" Color="#151E3E"/>
   </LinearGradientBrush>
-
 
 </ResourceDictionary>

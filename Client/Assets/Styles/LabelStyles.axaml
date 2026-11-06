@@ -17,8 +17,6 @@
     <Setter Property="FontSize" Value="20"/>
   </Style>
 
-  <!-- Label.form = bara de Labels som har Classes="form", alltså texterna i formuläret.
-  mindre text än vanliga Labels och lite luft ovanför och under -->
   <Style Selector="Label.form">
     <Setter Property="FontSize" Value="15"/>
     <Setter Property="Padding" Value="0 5" />

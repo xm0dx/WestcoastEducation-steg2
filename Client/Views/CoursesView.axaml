@@ -14,8 +14,6 @@
   <StackPanel>
     <TextBlock Classes="pageTitle" Text="{Binding PageTitle}"/>
 
-    <!-- knappen ligger på kurssidan men commandet finns i MainWindowViewModel,
-         därför går bindningen upp till fönstret ($parent[Window]) och dess DataContext -->
     <Button HorizontalAlignment="Left" Classes="form" MaxWidth="300" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddCourseCommand}">
       <StackPanel Orientation="Horizontal">
         <Label FontFamily="{DynamicResource IconFont}" Content="&#xe3d4;" Padding="0 5 5 0" />
@@ -35,10 +33,7 @@
         <Label Grid.Column="7"/>
       </Grid>
     </Border>
-    <!-- ScrollViewer: listan får en fast höjd och en rullist när kurserna inte får plats -->
     <ScrollViewer Height="400">
-      <!-- ItemsControl ritar en rad per kurs i Courses. inne i DataTemplate är DataContext
-           den enskilda kursen, därför funkar {Binding Title} direkt -->
       <ItemsControl ItemsSource="{Binding Courses}" Margin="0 10 0 0">
         <ItemsControl.ItemTemplate>
           <DataTemplate>
@@ -50,7 +45,6 @@
               <Label Grid.Column="4" Content="{Binding EndDateText}" />
               <Label Grid.Column="5" Content="{Binding Form}" />
               <Label Grid.Column="6" Content="{Binding TeacherName}" />
-              <!-- ta bort stannar på sidan, så den går bara upp till CoursesViewModel ($parent[UserControl]) -->
               <Button Classes="danger" Grid.Column="7" Command="{Binding $parent[UserControl].DataContext.DeleteCommand}" CommandParameter="{Binding CourseNumber}" FontFamily="{DynamicResource IconFont}" Content="&#xe4a6;" Padding="10 5 0 10"></Button>
             </Grid>
           </DataTemplate>
@@ -58,7 +52,6 @@
       </ItemsControl>
     </ScrollViewer>
 
-    <!-- Popup = liten ruta som visas ovanpå sidan. IsOpen styrs av ShowDialog i CoursesViewModel -->
     <Popup IsOpen="{Binding ShowDialog}" Placement="Center">
       <Border Padding="30" Background="{DynamicResource BackgroundColor}" BorderBrush="{DynamicResource ForegroundColor}" BorderThickness="2">
         <StackPanel>

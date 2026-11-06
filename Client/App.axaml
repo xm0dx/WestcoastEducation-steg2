@@ -20,7 +20,6 @@
 
     <Application.Resources>
         <ResourceDictionary>
-            <!-- typsnitten ligger direkt här, färger och penslar i egna filer -->
             <FontFamily x:Key="MontserratFont">avares://Client/Assets/Fonts#Montserrat</FontFamily>
             <FontFamily x:Key="IconFont">avares://Client/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
             <ResourceDictionary.MergedDictionaries>
