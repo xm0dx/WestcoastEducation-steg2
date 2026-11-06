@@ -4,7 +4,6 @@ using Client.Models;
 
 namespace Client.Interfaces;
 
-// löftet för kurstjänsten, samma mönster som IProductService i RunStore
 public interface ICourseService
 {
     Task Add(Course course);

@@ -4,7 +4,6 @@ using Client.Models;
 
 namespace Client.Interfaces;
 
-// samma mönster som IProductService i RunStore
 public interface ITeacherService
 {
     Task Add(Teacher teacher);
