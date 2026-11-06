@@ -1,7 +1,6 @@
 namespace Client.Models;
 
 // det som alla personer har gemensamt, samma som i inlämning 1.
-// skrivs en gång här, Student och Teacher ärver det
 public class Person
 {
     public required string FirstName { get; set; }
@@ -12,7 +11,6 @@ public class Person
     public string PostalCode { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
 
-    // hela namnet, för listorna
     public string FullName
     {
         get { return $"{FirstName} {LastName}"; }

@@ -1,6 +1,5 @@
 namespace Client.Models;
 
-// en lärare är en person med ett kunskapsområde
 public class Teacher : Person
 {
     public string KnowledgeArea { get; set; } = string.Empty;

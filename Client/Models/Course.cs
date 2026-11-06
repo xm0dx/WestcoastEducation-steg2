@@ -12,7 +12,6 @@ public class Course
     public DateTime EndDate { get; set; }
     public bool IsOnline { get; set; } // true = distans, false = klassrum
 
-    // namnet på läraren som har kursen, tom om ingen är vald än
     public string TeacherName { get; set; } = string.Empty;
 
     // texter som listan visar, så vyn inte behöver räkna ut något själv
