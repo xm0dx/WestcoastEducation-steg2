@@ -2,12 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="using:Client.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Client.Views.HomeView"
-             x:DataType="vm:HomeViewModel">
+             x:Class="Client.Views.HomeView">
   <StackPanel>
-    <TextBlock Classes="pageTitle" Text="{Binding PageTitle}"/>
-    <TextBlock TextAlignment="Center" Text="Administration av kurser, studerande och lärare. Välj en sida i menyn."/>
+    <TextBlock Classes="pageTitle" Text="Välkommen till Westcoast Education"/>
   </StackPanel>
 </UserControl>
