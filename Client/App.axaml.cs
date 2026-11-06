@@ -8,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Client;
 
-// App är själva programmet. här startar allt innan första fönstret visas
 public partial class App : Application
 {
     public override void Initialize()
@@ -22,7 +21,6 @@ public partial class App : Application
         var collection = new ServiceCollection();
         collection.AddServices();
 
-        // behållaren kan skapa objekt och vet vad varje konstruktor behöver (dependency injection)
         var serviceProvider = collection.BuildServiceProvider();
         var vm = serviceProvider.GetRequiredService<MainWindowViewModel>();
 

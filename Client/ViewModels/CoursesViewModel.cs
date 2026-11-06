@@ -11,17 +11,14 @@ namespace Client.ViewModels;
 
 public partial class CoursesViewModel : ViewModelBase
 {
-    // interfacet, inte klassen. ViewModeln vet inte var kurserna kommer ifrån
     private readonly ICourseService _courseService;
 
     [ObservableProperty]
     public partial ObservableCollection<Course> Courses { get; set; } = [];
 
-    // true = popupen "är du säker?" visas. vyn binder Popup.IsOpen till den här
     [ObservableProperty]
     public partial bool ShowDialog { get; set; }
 
-    // kursnumret som användaren klickade ta bort på, sparas tills hen svarat i popupen
     private string? _courseNumberToDelete;
 
     // tom konstruktor bara för förhandsvisningen i editorn
@@ -36,7 +33,6 @@ public partial class CoursesViewModel : ViewModelBase
         _courseService = courseService;
         PageTitle = "Kurser";
 
-        // en konstruktor kan inte vara async, så den startar Init som får vänta i stället
         Init();
     }
 
@@ -48,7 +44,6 @@ public partial class CoursesViewModel : ViewModelBase
         ShowDialog = true;
     }
 
-    // Nej i popupen: stäng bara rutan
     [RelayCommand]
     private void Cancel()
     {
@@ -56,7 +51,6 @@ public partial class CoursesViewModel : ViewModelBase
         _courseNumberToDelete = null;
     }
 
-    // Ja i popupen: nu händer det på riktigt.
     // knappen skickade kursnumret, men restdb vill ha sitt eget _id för att ta bort.
     // därför: hämta kursen först (Find ger CourseRestDb med _id), ta bort, ladda om listan
     [RelayCommand]

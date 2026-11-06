@@ -13,7 +13,6 @@ public partial class AddCourseViewModel : ViewModelBase
 {
     private readonly ICourseService _courseService;
 
-    // en egenskap per ruta i formuläret. TextBox.Text binder hit
     [ObservableProperty]
     public partial string CourseNumber { get; set; } = string.Empty;
 
@@ -26,21 +25,18 @@ public partial class AddCourseViewModel : ViewModelBase
     [ObservableProperty]
     public partial string DurationUnit { get; set; } = "veckor";
 
-    // datumen skrivs som text (2026-01-15) och görs om till DateTime när vi sparar
     [ObservableProperty]
     public partial string StartDate { get; set; } = string.Empty;
 
     [ObservableProperty]
     public partial string EndDate { get; set; } = string.Empty;
 
-    // CheckBox binder hit. true = distans
     [ObservableProperty]
     public partial bool IsOnline { get; set; }
 
     [ObservableProperty]
     public partial string TeacherName { get; set; } = string.Empty;
 
-    // visas under formuläret om något är fel, eller när det gick bra
     [ObservableProperty]
     public partial string Message { get; set; } = string.Empty;
 
@@ -93,7 +89,6 @@ public partial class AddCourseViewModel : ViewModelBase
 
         try
         {
-            // Post lägger till ett nytt dokument i restdb
             await _courseService.Add(course);
             Message = $"Kursen {course.CourseNumber} är sparad.";
             ClearData();

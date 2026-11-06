@@ -8,9 +8,6 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Client.ViewModels;
 
-// sidan för att ändra en lärare, framför allt kompetensområdet.
-// flödet: knappen på raden skickar personnumret -> MainWindowViewModel.GoToEditTeacher -> fabriken
-// -> new EditTeacherViewModel(tjänst, personnummer) -> Init hämtar läraren -> rutorna fylls i.
 // samma upplägg som EditProductViewModel i RunStore
 public partial class EditTeacherViewModel : ViewModelBase
 {
@@ -22,7 +19,6 @@ public partial class EditTeacherViewModel : ViewModelBase
     // restdb:s _id, det måste med i adressen vid uppdatering
     private string _objectId = string.Empty;
 
-    // en egenskap per ruta. [ObservableProperty] gör att rutorna fylls när vi hämtat läraren
     [ObservableProperty]
     public partial string FirstName { get; set; } = string.Empty;
 
