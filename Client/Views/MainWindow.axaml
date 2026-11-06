@@ -4,44 +4,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:Client.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
-        Height="768" Width="1100"
+        Height="768" Width="1024"
         x:Class="Client.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="Westcoast Education">
 
-    <!-- två kolumner: menyn (Auto = så bred som innehållet) och sidan (* = resten) -->
+    <!-- Design.DataContext används bara av förhandsvisningen i editorn. -->
+    <Design.DataContext>
+        <vm:MainWindowViewModel></vm:MainWindowViewModel>
+    </Design.DataContext>
+
+    <!-- två kolumner: menyn (Auto = så bred som innehållet) och sidan (* = resten). samma upplägg som RunStore -->
     <Grid ColumnDefinitions="Auto,*" Background="{DynamicResource BackgroundColor}">
         <Border Padding="10" Background="{DynamicResource PrimaryBackgroundGradient}">
-            <StackPanel Spacing="10" MinWidth="200">
-                <TextBlock Margin="10 10 10 20" Text="Westcoast Education" FontSize="20" FontWeight="Bold" Foreground="{DynamicResource ForegroundColor}" />
-                <!-- Command binder till GoToHomeCommand som [RelayCommand] skapade av metoden GoToHome -->
-                <Button Command="{Binding GoToHomeCommand}">
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <Label Padding="0 4" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
-                        <Label Content="Hem" />
+            <Grid RowDefinitions="*,Auto">
+                <StackPanel Grid.Row="0" Spacing="10">
+                    <StackPanel Orientation="Horizontal" Spacing="20">
+                        <Label Padding="0 10" FontSize="40" FontFamily="{DynamicResource IconFont}" Content="&#xe2fe;" />
+                        <TextBlock VerticalAlignment="Center" Text="Westcoast Education" FontSize="20" Foreground="{DynamicResource ForegroundColor}" />
                     </StackPanel>
-                </Button>
-                <Button Command="{Binding GoToCoursesCommand}">
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <Label Padding="0 4" FontFamily="{DynamicResource IconFont}" Content="&#xe0fe;" />
-                        <Label Content="Kurser" />
-                    </StackPanel>
-                </Button>
-                <Button Command="{Binding GoToStudentsCommand}">
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <Label Padding="0 4" FontFamily="{DynamicResource IconFont}" Content="&#xe4e6;" />
-                        <Label Content="Studerande" />
-                    </StackPanel>
-                </Button>
-                <Button Command="{Binding GoToTeachersCommand}">
-                    <StackPanel Orientation="Horizontal" Spacing="10">
-                        <Label Padding="0 4" FontFamily="{DynamicResource IconFont}" Content="&#xe30c;" />
-                        <Label Content="Lärare" />
-                    </StackPanel>
-                </Button>
-            </StackPanel>
+                    <!-- Command binder till GoToHomeCommand som [RelayCommand] skapade av metoden GoToHome -->
+                    <Button Command="{Binding GoToHomeCommand}" >
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xe2c2;" />
+                            <Label Content="Hem" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding GoToCoursesCommand}" >
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
+                            <Label Content="Kurser" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding GoToStudentsCommand}" >
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
+                            <Label Content="Studerande" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding GoToTeachersCommand}" >
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Label Padding="0 6" FontFamily="{DynamicResource IconFont}" Content="&#xed60;" />
+                            <Label Content="Lärare" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Button
+                    Grid.Row="1"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    FontFamily="{DynamicResource IconFont}"
+                    Content="&#xe270;" ></Button>
+            </Grid>
         </Border>
         <!-- här visas sidan. Content är en ViewModel, ViewLocator byter den mot rätt View -->
-        <UserControl Grid.Column="1" Padding="30" Content="{Binding CurrentView}" />
+        <UserControl Grid.Column="1" Padding="20" Content="{Binding CurrentView}" />
     </Grid>
 </Window>
