@@ -1,11 +1,7 @@
+using System;
+
 namespace Client.Models;
 
-public class Student : Person
+public record Student : Person
 {
-}
-
-// samma som Student men med restdb:s eget _id.
-public class StudentRestDb : Student
-{
-    public string _id { get; set; } = string.Empty;
 }
