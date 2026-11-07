@@ -12,8 +12,11 @@ public static class ServiceCollectionExtensions
     {
         collection.AddSingleton<MainWindowViewModel>();
         collection.AddSingleton<PageViewFactory>();
+        collection.AddTransient<HomeViewModel>();
+        collection.AddTransient<CoursesViewModel>();
+        collection.AddTransient<StudentsViewModel>();
+        collection.AddTransient<TeachersViewModel>();
 
-        // "om någon ber om ett ICourseService, ge dem en CourseServices"
         collection.AddTransient<ICourseService, CourseServices>();
         collection.AddTransient<IStudentService, StudentServices>();
         collection.AddTransient<ITeacherService, TeacherServices>();
