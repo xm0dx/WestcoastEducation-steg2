@@ -19,49 +19,36 @@ public partial class CoursesViewModel : ViewModelBase
     [ObservableProperty]
     public partial bool ShowDialog { get; set; }
 
-    private string? _courseNumberToDelete;
+    private string _courseNumber = string.Empty;
 
-    // tom konstruktor bara för förhandsvisningen i editorn
     public CoursesViewModel()
     {
         _courseService = new CourseServices();
         PageTitle = "Kurser";
+        Init();
     }
 
     public CoursesViewModel(ICourseService courseService)
     {
         _courseService = courseService;
         PageTitle = "Kurser";
-
         Init();
     }
 
-    // ta bort-knappen i listan tar inte bort direkt, den öppnar popupen så användaren får bekräfta
     [RelayCommand]
     private void Delete(string courseNumber)
     {
-        _courseNumberToDelete = courseNumber;
+        _courseNumber = courseNumber;
         ShowDialog = true;
     }
 
     [RelayCommand]
-    private void Cancel()
-    {
-        ShowDialog = false;
-        _courseNumberToDelete = null;
-    }
-
-    // knappen skickade kursnumret, men restdb vill ha sitt eget _id för att ta bort.
-    // därför: hämta kursen först (Find ger CourseRestDb med _id), ta bort, ladda om listan
-    [RelayCommand]
     private async Task Confirm()
     {
         ShowDialog = false;
-        if (_courseNumberToDelete is null) return;
-
         try
         {
-            CourseRestDb course = await _courseService.Find(_courseNumberToDelete);
+            CourseRestDb course = await _courseService.Find(_courseNumber);
             if (course is not null)
             {
                 await _courseService.Delete(course._id);
@@ -72,7 +59,12 @@ public partial class CoursesViewModel : ViewModelBase
         {
             Console.WriteLine(ex.Message);
         }
-        _courseNumberToDelete = null;
+    }
+
+    [RelayCommand]
+    private void Cancel()
+    {
+        ShowDialog = false;
     }
 
     private async void Init()
