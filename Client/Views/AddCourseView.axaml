@@ -26,14 +26,14 @@
           <Label Classes="form" Grid.Row="6" HorizontalAlignment="Right" Content="Distans"/>
           <Label Classes="form" Grid.Row="7" HorizontalAlignment="Right" Content="Lärare"/>
 
-          <TextBox Grid.Column="1" Text="{Binding CourseNumber}" Watermark="t ex CS101" HorizontalAlignment="Left" />
+          <TextBox Grid.Column="1" Text="{Binding CourseNumber}" HorizontalAlignment="Left" />
           <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Title}" HorizontalAlignment="Left" />
           <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Duration}" HorizontalAlignment="Left" />
-          <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding DurationUnit}" Watermark="veckor eller dagar" HorizontalAlignment="Left" />
-          <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding StartDate}" Watermark="2026-01-15" HorizontalAlignment="Left" />
-          <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding EndDate}" Watermark="2026-03-15" HorizontalAlignment="Left" />
+          <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding DurationUnit}" HorizontalAlignment="Left" />
+          <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding StartDate}" HorizontalAlignment="Left" />
+          <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding EndDate}" HorizontalAlignment="Left" />
           <CheckBox Grid.Column="1" Grid.Row="6" IsChecked="{Binding IsOnline}" Content="kursen är på distans" />
-          <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding TeacherName}" Watermark="kan lämnas tom" HorizontalAlignment="Left" />
+          <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding TeacherName}" HorizontalAlignment="Left" />
         </Grid>
 
         <TextBlock Foreground="{DynamicResource Danger}" TextAlignment="Center" Margin="0 20 0 0" Text="{Binding Message}" />
