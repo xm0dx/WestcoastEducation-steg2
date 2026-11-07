@@ -17,6 +17,7 @@ public class StudentServices : IStudentService
     public async Task<List<Student>> List()
     {
         var httpService = new HttpService<Student>();
-        return await httpService.Get("students");
+        var students = await httpService.Get("students");
+        return students;
     }
 }

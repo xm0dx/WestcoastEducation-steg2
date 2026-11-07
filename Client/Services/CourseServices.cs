@@ -32,6 +32,7 @@ public class CourseServices : ICourseService
     public async Task<List<Course>> List()
     {
         var httpService = new HttpService<Course>();
-        return await httpService.Get("courses");
+        var courses = await httpService.Get("courses");
+        return courses;
     }
 }

@@ -25,7 +25,8 @@ public class TeacherServices : ITeacherService
     public async Task<List<Teacher>> List()
     {
         var httpService = new HttpService<Teacher>();
-        return await httpService.Get("teachers");
+        var teachers = await httpService.Get("teachers");
+        return teachers;
     }
 
     // Put byter ut läraren i restdb mot den vi skickar in, _objectId är restdb:s _id
