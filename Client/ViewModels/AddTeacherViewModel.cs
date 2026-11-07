@@ -73,20 +73,14 @@ public partial class AddTeacherViewModel : ViewModelBase
             KnowledgeArea = KnowledgeArea
         };
 
-        try
-        {
-            await _teacherService.Add(teacher);
-            Message = $"{teacher.FirstName} {teacher.LastName} är sparad.";
-            ClearData();
-        }
-        catch (Exception ex)
-        {
-            Message = "Kunde inte spara: " + ex.Message;
-        }
+        await _teacherService.Add(teacher);
+
+        ClearData();
     }
 
     private void ClearData()
     {
+        Message = string.Empty;
         FirstName = string.Empty;
         LastName = string.Empty;
         PersonalNumber = string.Empty;

@@ -55,14 +55,13 @@ public partial class AddCourseViewModel : ViewModelBase
     [RelayCommand]
     private async Task Save()
     {
-        // samma kontroller som i inlämning 1, fast nu med ett meddelande i stället för Console
+        // samma kontroller som i inlämning 1
         if (string.IsNullOrWhiteSpace(CourseNumber) || string.IsNullOrWhiteSpace(Title))
         {
             Message = "Kursnummer och titel måste fyllas i.";
             return;
         }
 
-        // TryParse: blir det inget datum så blir det false i stället för en krasch
         if (!DateTime.TryParse(StartDate, out DateTime start) || !DateTime.TryParse(EndDate, out DateTime end))
         {
             Message = "Skriv datumen som 2026-01-15.";
@@ -87,21 +86,14 @@ public partial class AddCourseViewModel : ViewModelBase
             TeacherName = TeacherName
         };
 
-        try
-        {
-            await _courseService.Add(course);
-            Message = $"Kursen {course.CourseNumber} är sparad.";
-            ClearData();
-        }
-        catch (Exception ex)
-        {
-            Message = "Kunde inte spara: " + ex.Message;
-        }
+        await _courseService.Add(course);
+
+        ClearData();
     }
 
-    // tömmer rutorna så man kan skriva in nästa kurs
     private void ClearData()
     {
+        Message = string.Empty;
         CourseNumber = string.Empty;
         Title = string.Empty;
         Duration = 0;

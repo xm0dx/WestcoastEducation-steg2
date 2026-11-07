@@ -69,20 +69,14 @@ public partial class AddStudentViewModel : ViewModelBase
             City = City
         };
 
-        try
-        {
-            await _studentService.Add(student);
-            Message = $"{student.FirstName} {student.LastName} är sparad.";
-            ClearData();
-        }
-        catch (Exception ex)
-        {
-            Message = "Kunde inte spara: " + ex.Message;
-        }
+        await _studentService.Add(student);
+
+        ClearData();
     }
 
     private void ClearData()
     {
+        Message = string.Empty;
         FirstName = string.Empty;
         LastName = string.Empty;
         PersonalNumber = string.Empty;
