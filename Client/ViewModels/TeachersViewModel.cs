@@ -19,6 +19,7 @@ public partial class TeachersViewModel : ViewModelBase
     {
         _teacherService = new TeacherServices();
         PageTitle = "Lärare";
+        Init();
     }
 
     public TeachersViewModel(ITeacherService teacherService)

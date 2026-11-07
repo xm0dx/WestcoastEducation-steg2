@@ -1,4 +1,3 @@
-using Client.Enums;
 using Client.Factories;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -12,6 +11,11 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     public partial ViewModelBase CurrentView { get; set; } = new();
 
+    public MainWindowViewModel()
+    {
+        _pageViewFactory = new PageViewFactory();
+        GoToHome();
+    }
     public MainWindowViewModel(PageViewFactory pageViewFactory)
     {
         _pageViewFactory = pageViewFactory;
@@ -19,21 +23,20 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void GoToHome() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Home);
+    private void GoToHome() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Home);
     [RelayCommand]
-    private void GoToCourses() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Courses);
+    private void GoToCourses() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Courses);
     [RelayCommand]
-    private void GoToAddCourse() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.AddCourse);
+    private void GoToAddCourse() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.AddCourse);
     [RelayCommand]
-    private void GoToStudents() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Students);
+    private void GoToStudents() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Students);
     [RelayCommand]
-    private void GoToAddStudent() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.AddStudent);
+    private void GoToAddStudent() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.AddStudent);
     [RelayCommand]
-    private void GoToTeachers() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.Teachers);
+    private void GoToTeachers() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.Teachers);
     [RelayCommand]
-    private void GoToAddTeacher() => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.AddTeacher);
+    private void GoToAddTeacher() => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.AddTeacher);
 
-    // commandet får personnumret från knappen på raden (CommandParameter) och skickar det vidare till fabriken
     [RelayCommand]
-    private void GoToEditTeacher(string personalNumber) => CurrentView = _pageViewFactory.LoadPageViewModel(PageViewsEnum.EditTeacher, personalNumber);
+    private void GoToEditTeacher(string personalNumber) => CurrentView = _pageViewFactory.LoadPageViewModel(Enums.PageViewsEnum.EditTeacher, personalNumber);
 }
