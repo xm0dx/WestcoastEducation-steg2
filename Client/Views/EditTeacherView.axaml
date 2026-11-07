@@ -28,15 +28,14 @@
 
           <TextBox Classes="form" Grid.Column="1" Text="{Binding FirstName}" HorizontalAlignment="Left" />
           <TextBox Classes="form" Grid.Column="1" Grid.Row="1" Text="{Binding LastName}" HorizontalAlignment="Left" />
-          <TextBox Classes="form" Grid.Column="1" Grid.Row="2" Text="{Binding PersonalNumber}" Watermark="ÅÅÅÅMMDD-XXXX" HorizontalAlignment="Left" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="2" Text="{Binding PersonalNumber}" HorizontalAlignment="Left" />
           <TextBox Classes="form" Grid.Column="1" Grid.Row="3" Text="{Binding Phone}" HorizontalAlignment="Left" />
           <TextBox Classes="form" Grid.Column="1" Grid.Row="4" Text="{Binding Address}" HorizontalAlignment="Left" />
           <TextBox Classes="form" Grid.Column="1" Grid.Row="5" Text="{Binding PostalCode}" HorizontalAlignment="Left" />
           <TextBox Classes="form" Grid.Column="1" Grid.Row="6" Text="{Binding City}" HorizontalAlignment="Left" />
-          <TextBox Classes="form" Grid.Column="1" Grid.Row="7" Text="{Binding KnowledgeArea}" Watermark="t ex C#, webb, databaser" HorizontalAlignment="Left" />
+          <TextBox Classes="form" Grid.Column="1" Grid.Row="7" Text="{Binding KnowledgeArea}" HorizontalAlignment="Left" />
         </Grid>
 
-        <TextBlock Foreground="{DynamicResource Danger}" TextAlignment="Center" Margin="0 20 0 0" Text="{Binding Message}" />
 
         <StackPanel Spacing="20" Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
           <Button Classes="form" Command="{Binding SaveCommand}">
